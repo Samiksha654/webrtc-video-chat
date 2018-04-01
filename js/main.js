@@ -3,10 +3,10 @@
 // config
 
 // uncomment to use your locally running signalling server
-// var serverIP = "http://localhost:2013";
+ var serverIP = "http://localhost:2013";
 
 //my signalling server
-var serverIP = "http://45.55.61.164:2013/";
+//var serverIP = "http://45.55.61.164:2013/";
 
 // RTCPeerConnection Options
 var server = {
@@ -149,8 +149,11 @@ function establishRTCConnection(room) {
 
             // send local sdp to remote
             signallingServer.sendSDP(sessionDescription);
-        });
+        },error);
     }
+    
+                function errormy () { console.log('There was an error'); };
+
 
     // got sdp from remote
     signallingServer.onReceiveSdp = function(sdp) {
